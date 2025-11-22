@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-*4f$2&i5k!casxuzztu+!phg3sd&&!+n@_nz(l1r#wy69oegw!
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["task-api.mizantech.com",
+ALLOWED_HOSTS = ["task-api.mizantechs.com",
                  ] #This is the host domain for the django rest api (PRODUCTION)
 
 
@@ -157,7 +157,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://localhost:3000",
     "https://127.0.0.1:3000",
-    "https://tasklist.mizantech.com" #This is the host domain for the react app (PRODUCTION)
+    "https://tasklist.mizantechs.com" #This is the host domain for the react app (PRODUCTION)
 
     
 ]
@@ -169,6 +169,6 @@ CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',
                         'https://localhost:3000',
-                        "https://tasklist.mizantech.com", #This is the host domain for the react app (PRODUCTION)
+                        "https://tasklist.mizantechs.com", #This is the host domain for the react app (PRODUCTION)
                                                ]
 
