@@ -30,6 +30,9 @@ SECRET_KEY = 'django-insecure-*4f$2&i5k!casxuzztu+!phg3sd&&!+n@_nz(l1r#wy69oegw!
 DEBUG = False
 
 ALLOWED_HOSTS = ["task-api.mizantechs.com",
+                  "http://localhost:8000",
+                    "http://127.0.0.1:8000",
+                 
                  ] #This is the host domain for the django rest api (PRODUCTION)
 
 
