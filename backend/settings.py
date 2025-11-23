@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*4f$2&i5k!casxuzztu+!phg3sd&&!+n@_nz(l1r#wy69oegw!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 #ALLOWED_HOSTS = ['*',]
 ALLOWED_HOSTS = ["localhost",'127.0.0.1',
@@ -142,7 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/') #This is used to serve static files in production.
+STATIC_ROOT =  BASE_DIR / 'static' #This is used to serve static files in production.
 
 
 # Default primary key field type
@@ -158,8 +158,7 @@ CORS_ALLOWED_ORIGINS = [
     "https://localhost:3000",
     "https://127.0.0.1:3000",
     "https://tasklist.mizantechs.com" ,#This is the host domain for the react app (PRODUCTION)
-
-    
+   
 ]
 
 
