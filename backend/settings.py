@@ -27,14 +27,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-*4f$2&i5k!casxuzztu+!phg3sd&&!+n@_nz(l1r#wy69oegw!'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["task-api.mizantechs.com",
-                  "http://localhost:8000",
-                    "http://127.0.0.1:8000",
-                 
-                 ] #This is the host domain for the django rest api (PRODUCTION)
-
+#ALLOWED_HOSTS = ['*',]
+ALLOWED_HOSTS = ["localhost",'127.0.0.1',
+                 "task-api.mizantechs.com",
+                 "tasklist.mizantechs.com",] #This is the host domain for the django rest api (PRODUCTION)
 
 
 # Application definition
@@ -49,7 +47,7 @@ INSTALLED_APPS = [
     'tasks',
     'rest_framework',
     'corsheaders',
-     'whitenoise.runserver_nostatic', #This is used to serve static files in production.
+    'whitenoise.runserver_nostatic', #This is used to serve static files in production.
 ]
 
 MIDDLEWARE = [
@@ -109,7 +107,6 @@ DATABASES = {
 }
 
 
-
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
 
@@ -160,7 +157,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://localhost:3000",
     "https://127.0.0.1:3000",
-    "https://tasklist.mizantechs.com" #This is the host domain for the react app (PRODUCTION)
+    "https://tasklist.mizantechs.com" ,#This is the host domain for the react app (PRODUCTION)
 
     
 ]
