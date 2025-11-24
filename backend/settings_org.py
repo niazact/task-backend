@@ -31,7 +31,8 @@ DEBUG = False
 
 #ALLOWED_HOSTS = ['*',]
 ALLOWED_HOSTS = ["localhost",'127.0.0.1',
-                 ]
+                 "task-api.mizantechs.com",
+                 "tasklist.mizantechs.com",] #This is the host domain for the django rest api (PRODUCTION)
 
 
 # Application definition
@@ -46,11 +47,12 @@ INSTALLED_APPS = [
     'tasks',
     'rest_framework',
     'corsheaders',
-  
+    'whitenoise.runserver_nostatic', #This is used to serve static files in production.
 ]
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware', #This is used to serve static files in production.
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,12 +86,25 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 #This retrieves our db connection credentials for sqlite3.
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
-} 
+} """
+
+
+#This retrieves our db connection credentials for MySQL.
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT'),
+    }
+}
 
 
 # Password validation
@@ -127,6 +142,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT =  BASE_DIR / 'static' #This is used to serve static files in production.
 
 
 # Default primary key field type
@@ -141,6 +157,8 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://localhost:3000",
     "https://127.0.0.1:3000",
+    "https://d1deucpgmnl8a1.cloudfront.net",
+    "https://tasklist.mizantechs.com" ,#This is the host domain for the react app (PRODUCTION)
    
 ]
 
@@ -152,5 +170,6 @@ CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SAMESITE = 'Lax'
 CSRF_TRUSTED_ORIGINS = ['http://localhost:3000',
                         'https://localhost:3000',
+                        "https://tasklist.mizantechs.com", #This is the host domain for the react app (PRODUCTION)
                                                ]
 
