@@ -157,9 +157,11 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
     "https://localhost:3000",
     "https://127.0.0.1:3000",
+    "https://d1deucpgmnl8a1.cloudfront.net",
     "https://tasklist.mizantechs.com" ,#This is the host domain for the react app (PRODUCTION)
    
 ]
+
 
 
 CORS_ALLOW_CREDENTIALS = True
